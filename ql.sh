@@ -294,7 +294,7 @@ docker run -dit \
     --name $CONTAINER_NAME \
     --hostname qinglong \
     --restart always \
-    --network ql \
+    --network qinglong \
     $ENABLE_HANGUP_ENV \
     $ENABLE_WEB_PANEL_ENV \
     $DOCKER_IMG_NAME:$TAG
