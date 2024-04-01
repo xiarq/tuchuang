@@ -238,14 +238,6 @@ if [ "$port" != "2" ]; then
     MAPPING_JD_PORT="-p $JD_PORT:5600"
 fi
 
-networks:
-  dm_network:
-    driver: bridge
-#    ipam:
-#      driver: default
-#      config:
-#      - subnet: 172.23.0.0/16
-#        gateway: 172.23.0.1
 
 log "3.开始创建容器并执行"
 docker run -dit \
@@ -255,8 +247,7 @@ docker run -dit \
     --name $CONTAINER_NAME \
     --hostname qinglong \
     --restart always \
-    --network 
-      - dm_network
+    --network ql \
     $ENABLE_HANGUP_ENV \
     $ENABLE_WEB_PANEL_ENV \
     $DOCKER_IMG_NAME:$TAG
@@ -270,6 +261,7 @@ if [ $INSTALL_WATCH = true ]; then
     docker run -d \
     --name watchtower \
     --restart always \
+    --network ql \
     -v /var/run/docker.sock:/var/run/docker.sock \
     containrrr/watchtower -c\
     --schedule "13,14,15 3 * * * *" \
