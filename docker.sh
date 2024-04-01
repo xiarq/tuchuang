@@ -25,7 +25,7 @@ if [[ -d "$(pwd)"/auto_spy_data/autospy  ]]; then
 	docker stop auto_spy
 	docker rm auto_spy
 	echo "autospy配置文件已存在"
-	docker run -dit --restart=always --name=auto_spy --log-opt max-size=100m --log-opt max-file=3 -v "$(pwd)"/auto_spy_data/autospy:/autospy --hostname=auto_spy --network=auto xieshang1111/auto_spy:$arch
+	docker run -dit --restart=always --name=auto_spy --log-opt max-size=100m --log-opt max-file=3 -v "$(pwd)"/auto_spy_data/autospy:/autospy --hostname=auto_spy --network=autospy xieshang1111/auto_spy:$arch
 else
 	mkdir auto_spy_data
     docker run -dit --restart=always --name=auto_spy --hostname=auto_spy xieshang1111/auto_spy:$arch
