@@ -6,4 +6,4 @@
 
 
 [Script]
-cron "0 0 21 * * *" script-path=https://raw.githubusercontent.com/deezertidal/private/main/hotoday.js, timeout=10, tag=今日平台热榜, argument="platform=&count="
+cron "0 3 21 * * *" script-path=https://raw.githubusercontent.com/deezertidal/private/main/hotoday.js, timeout=10, tag=今日平台热榜, argument="platform=&count="
